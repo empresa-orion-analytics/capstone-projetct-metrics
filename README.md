@@ -1,5 +1,7 @@
 # 📊 Capstone Project – Metrics Platform
 
+![Arquitetura da Plataforma](Docs/arquitetura.png)
+
 Este repositório contém a implementação de uma **plataforma de dados analíticos** baseada em arquitetura *Lakehouse*, com separação clara entre **ingestão, processamento, publicação e consumo de dados**.
 
 O objetivo do projeto é demonstrar, de ponta a ponta, como dados brutos podem ser transformados em **informação confiável e pronta para consumo por ferramentas de BI**, seguindo boas práticas de engenharia de dados.
