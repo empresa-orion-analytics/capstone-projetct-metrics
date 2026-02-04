@@ -126,6 +126,10 @@ Essas ferramentas acessam exclusivamente o banco analítico, garantindo:
 
 ```
 capstone-projetct-metrics/
+├── Docs/
+│   ├── arquitetura.png
+│   └── ArquiteturaProjectCapstone.excalidraw
+|
 │
 ├── ingestion/
 │   └── faker_generator.py
