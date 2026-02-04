@@ -130,22 +130,28 @@ capstone-projetct-metrics/
 │   ├── arquitetura.png
 │   └── ArquiteturaProjectCapstone.excalidraw
 |
+├── Script/
+│   └── Script_S3_to_RDS_Postegres.py
+|
+├── Script_DDL/
+|   ├── gold_video_views_dia_faculdade.sql
+│   └── gold_video_views_dia_rede_social.sql
 │
-├── ingestion/
-│   └── faker_generator.py
+├── Notebook's/
+├────── Bronze
+│       └── bronze-faker-ingestao-s3.ipynb
+├────── Silver
+|       └── silver-criacao-s3.ipynb
+├────── Gold
+|       ├── gold_video_views_dia_faculdade.ipynb
+|       └── gold_video_views_dia_rede_social.ipynb
+|
+├── Pipiline_Jobs_Databricks
+|   ├── Bronze_Silver.yaml
+│   └── Gold.yaml
 │
-├── databricks/
-│   ├── bronze_to_silver.py
-│   └── silver_to_gold.py
-│
-├── publication/
-│   ├── Dockerfile
-│   ├── main.py
-│   └── requirements.txt
-│
-├── infra/
-│   ├── terraform/
-│   └── eventbridge/
+├── terraform/
+│   └── terraform_rds_postgres.tf
 │
 ├── .env.example
 ├── README.md
