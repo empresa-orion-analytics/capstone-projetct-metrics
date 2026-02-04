@@ -1,0 +1,87 @@
+resources:
+  jobs:
+    Bronze_Silver_Capstone:
+      name: Bronze + Silver Capstone
+      schedule:
+        quartz_cron_expression: 0 0 8,20 ? * *
+        timezone_id: America/Sao_Paulo
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: Bronze-Gran-instagram
+          notebook_task:
+            notebook_path: /Workspace/Users/brunosssss@gmail.com/Capstone/Scritps/Bronze/bronze-faker-ingestao-s3
+            base_parameters:
+              rede_social: instagram_reels
+              tipo_data: today
+              data_custom: ""
+              faculdade: GRAN
+              qtd_inscritos: "3200000"
+            source: WORKSPACE
+        - task_key: Bronze-Gran-tiktok
+          notebook_task:
+            notebook_path: /Workspace/Users/brunosssss@gmail.com/Capstone/Scritps/Bronze/bronze-faker-ingestao-s3
+            base_parameters:
+              rede_social: tiktok
+              tipo_data: today
+              data_custom: ""
+              faculdade: GRAN
+              qtd_inscritos: "99200"
+            source: WORKSPACE
+        - task_key: Bronze-Gran-youtube
+          notebook_task:
+            notebook_path: /Workspace/Users/brunosssss@gmail.com/Capstone/Scritps/Bronze/bronze-faker-ingestao-s3
+            base_parameters:
+              rede_social: youtube_shorts
+              tipo_data: today
+              data_custom: ""
+              faculdade: GRAN
+              qtd_inscritos: "2700000"
+            source: WORKSPACE
+        - task_key: Bronze-Impacta-instagran
+          notebook_task:
+            notebook_path: /Workspace/Users/brunosssss@gmail.com/Capstone/Scritps/Bronze/bronze-faker-ingestao-s3
+            base_parameters:
+              rede_social: instagram_reels
+              tipo_data: today
+              data_custom: ""
+              faculdade: IMPACTA
+              qtd_inscritos: "36600"
+            source: WORKSPACE
+        - task_key: Bronze-Impacta-tiktok
+          notebook_task:
+            notebook_path: /Workspace/Users/brunosssss@gmail.com/Capstone/Scritps/Bronze/bronze-faker-ingestao-s3
+            base_parameters:
+              rede_social: tiktok
+              tipo_data: today
+              data_custom: ""
+              faculdade: IMPACTA
+              qtd_inscritos: "2184"
+            source: WORKSPACE
+        - task_key: Bronze-Impacta-youtube
+          notebook_task:
+            notebook_path: /Workspace/Users/brunosssss@gmail.com/Capstone/Scritps/Bronze/bronze-faker-ingestao-s3
+            base_parameters:
+              rede_social: youtube_shorts
+              tipo_data: today
+              data_custom: ""
+              faculdade: IMPACTA
+              qtd_inscritos: "10700"
+            source: WORKSPACE
+        - task_key: silver-gran-impacta
+          depends_on:
+            - task_key: Bronze-Gran-youtube
+            - task_key: Bronze-Impacta-instagran
+            - task_key: Bronze-Gran-tiktok
+            - task_key: Bronze-Impacta-youtube
+            - task_key: Bronze-Impacta-tiktok
+            - task_key: Bronze-Gran-instagram
+          notebook_task:
+            notebook_path: /Workspace/Users/brunosssss@gmail.com/Capstone/Scritps/Silver/silver-criacao-s3
+            source: WORKSPACE
+      queue:
+        enabled: true
+      environments:
+        - environment_key: Default
+          spec:
+            environment_version: "4"
+      performance_target: PERFORMANCE_OPTIMIZED

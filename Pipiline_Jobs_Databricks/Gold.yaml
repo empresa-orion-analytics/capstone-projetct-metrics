@@ -1,0 +1,20 @@
+resources:
+  jobs:
+    Gold_Capstone:
+      name: Gold Capstone
+      schedule:
+        quartz_cron_expression: 30 0 22 * * ?
+        timezone_id: America/Sao_Paulo
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: gold_video_views_dia_faculdade
+          notebook_task:
+            notebook_path: /Workspace/Users/brunosssss@gmail.com/Capstone/Scritps/Gold/gold_video_views_dia_faculdade
+            source: WORKSPACE
+        - task_key: gold_video_views_dia_rede_social
+          notebook_task:
+            notebook_path: /Workspace/Users/brunosssss@gmail.com/Capstone/Scritps/Gold/gold_video_views_dia_rede_social
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
