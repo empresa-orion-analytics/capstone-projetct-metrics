@@ -8,6 +8,8 @@ O objetivo do projeto é demonstrar, de ponta a ponta, como dados brutos podem s
 
 ## 🧠 Visão Geral da Arquitetura
 
+Este projeto simula o funcionamento de uma **empresa de dados especializada em Analytics de Redes Sociais**, responsável por coletar, processar e disponibilizar métricas de performance de vídeos e conteúdos digitais para áreas de negócio e BI.
+
 A arquitetura foi desenhada para ser:
 - Escalável
 - Reprocessável
@@ -46,6 +48,10 @@ O processamento segue o padrão **Medallion Architecture**:
   - Histórico completo
 
 #### 🥈 Silver
+- Exemplo real neste projeto:
+  - `silver_criacao_s3.csv`
+
+Nesta camada, os dados representam **eventos de criação/publicação de conteúdos**, já tratados e padronizados para análises posteriores.
 - Formato: Parquet
 - Armazenamento: Amazon S3
 - Características:
@@ -54,6 +60,11 @@ O processamento segue o padrão **Medallion Architecture**:
   - Prontos para agregações
 
 #### 🥇 Gold
+- Exemplos reais neste projeto:
+  - `gold_video_views_dia_rede_social.csv`
+  - `gold_video_views_dia_faculdade.csv`
+
+A camada Gold consolida **métricas analíticas de redes sociais**, agregadas por dia, rede social e instituição, prontas para consumo por BI.
 - Formato: CSV
 - Armazenamento: Amazon S3
 - Características:
@@ -152,6 +163,13 @@ capstone-projetct-metrics/
 ---
 
 ## 🎯 Objetivos do Projeto
+
+- Simular o funcionamento de uma **empresa de Analytics focada em Redes Sociais**
+- Demonstrar como métricas de vídeos e engajamento podem ser tratadas e disponibilizadas
+- Aplicar boas práticas de Lakehouse (Bronze / Silver / Gold)
+- Separar claramente processamento analítico e serving
+- Facilitar consumo por ferramentas de BI
+- Servir como base para evoluções futuras (incremental, CDC, near real-time)
 
 - Demonstrar arquitetura moderna de dados
 - Aplicar boas práticas de Lakehouse
