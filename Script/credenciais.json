@@ -1,0 +1,9 @@
+{
+    "capstone": {
+        "host": "postgres-public-rds.catiga82itpu.us-east-1.rds.amazonaws.com",
+        "database": "postgres",
+        "port": "5432",
+        "username": "postgres",
+        "password": "capstoneimpacta08"
+    }
+}
